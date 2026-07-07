@@ -1,0 +1,558 @@
+{
+  "info": {
+    "_postman_id": "23882c6c-c6ae-45ae-91d4-4b652b20407b",
+    "name": "[QA] Testes - Crawler",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "56366628"
+  },
+  "item": [
+    {
+      "name": "01 - SMOKE",
+      "item": [
+        {
+          "name": "[SMOKE] Criar lead Primarca via Crawler sem campanha",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code deve ser 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Tempo de resposta deve ser menor que 3 segundos\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Resposta deve ser JSON válido\", function () {\r",
+                  "    pm.response.to.be.json;\r",
+                  "});\r",
+                  "\r",
+                  "const response = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Deve retornar success como true\", function () {\r",
+                  "    pm.expect(response.success).to.eql(true);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Deve retornar mensagem de sucesso\", function () {\r",
+                  "    pm.expect(response.message).to.eql(\"Lead recebido com sucesso.\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Deve retornar data como objeto\", function () {\r",
+                  "    pm.expect(response.data).to.exist;\r",
+                  "    pm.expect(response.data).to.be.an(\"object\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Deve retornar error como null\", function () {\r",
+                  "    pm.expect(response.error).to.eql(null);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Resposta deve conter somente os campos esperados\", function () {\r",
+                  "    pm.expect(response).to.have.all.keys(\"success\", \"message\", \"data\", \"error\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "a128ac75-d915-4631-9c2f-e6aa6da3beaf",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nome\": \"LEAD PRIMARCA\",\r\n    \"email\": \"testenovoleadprimarca@gmail.com\",\r\n    \"whatsappNumero\": \"11974870277\",\r\n    \"origem\": \"Site Primarca\",\r\n    \"CampanhaCod\": null,\r\n    \"CampanhaNome\": null,\r\n    \"cnpjEmpresa\": \"63078489001297\",\r\n    \"EmailResponsavel\": null,\r\n    \"obsEvento\": \"teste primarca\",\r\n    \"equipe\": null\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://api.homologacao.websupplyconnect.com/api/Lead/crawler",
+              "protocol": "https",
+              "host": [
+                "api",
+                "homologacao",
+                "websupplyconnect",
+                "com"
+              ],
+              "path": [
+                "api",
+                "Lead",
+                "crawler"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "[SMOKE] Criar lead Primarca via Crawler sem campanha",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "x-api-key",
+                    "value": "a128ac75-d915-4631-9c2f-e6aa6da3beaf",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nome\": \"LEAD PRIMARCA\",\r\n    \"email\": \"testenovoleadprimarca@gmail.com\",\r\n    \"whatsappNumero\": \"11974870277\",\r\n    \"origem\": \"Site Primarca\",\r\n    \"CampanhaCod\": null,\r\n    \"CampanhaNome\": null,\r\n    \"cnpjEmpresa\": \"63078489001297\",\r\n    \"EmailResponsavel\": null,\r\n    \"obsEvento\": \"teste primarca\",\r\n    \"equipe\": null\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://api.homologacao.websupplyconnect.com/api/Lead/crawler",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "homologacao",
+                    "websupplyconnect",
+                    "com"
+                  ],
+                  "path": [
+                    "api",
+                    "Lead",
+                    "crawler"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 03 Jul 2026 13:57:32 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Server",
+                  "value": "cloudflare"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Request-Context",
+                  "value": "appId=cid-v1:7d93dc8c-4935-4a9a-a56f-3cc1f303f142"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "ASP.NET"
+                },
+                {
+                  "key": "cf-cache-status",
+                  "value": "DYNAMIC"
+                },
+                {
+                  "key": "Nel",
+                  "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+                },
+                {
+                  "key": "Report-To",
+                  "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=caE4boPqnD5vt%2FS1R8oZtTJSyUQvfq%2FKC8J%2FxqU5UMLK%2Bxy550f6sJQ3B3S%2BFO0JklRVRtQ5TE%2BbZKmLx2d2T%2B3BDEzXnz9aUQOuQTLYUoJhNZv%2BOF4PXMQGCrzEtGqD761%2FftvfFvA4qqOOSQixUUqfNhL0kQ%3D%3D\"}]}"
+                },
+                {
+                  "key": "CF-RAY",
+                  "value": "a156665c5d5a1927-GRU"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Lead recebido com sucesso.\",\n    \"data\": {},\n    \"error\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "[SMOKE] Criar leads de diferentes empresa Primarca",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code deve ser 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Tempo de resposta deve ser menor que 3 segundos\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Resposta deve ser JSON válido\", function () {\r",
+                  "    pm.response.to.be.json;\r",
+                  "});\r",
+                  "\r",
+                  "const response = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Deve retornar success como true\", function () {\r",
+                  "    pm.expect(response.success).to.eql(true);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Deve retornar mensagem de sucesso\", function () {\r",
+                  "    pm.expect(response.message).to.eql(\"Lead recebido com sucesso.\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Deve retornar data como objeto\", function () {\r",
+                  "    pm.expect(response.data).to.exist;\r",
+                  "    pm.expect(response.data).to.be.an(\"object\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Deve retornar error como null\", function () {\r",
+                  "    pm.expect(response.error).to.eql(null);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Resposta deve conter somente os campos esperados\", function () {\r",
+                  "    pm.expect(response).to.have.all.keys(\"success\", \"message\", \"data\", \"error\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "a128ac75-d915-4631-9c2f-e6aa6da3beaf",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nome\": \"leads de diferentes empresas Primarca\",\r\n    \"email\": \"testenovoleadprimarca@gmail.com\",\r\n    \"whatsappNumero\": \"74918777972\",\r\n    \"origem\": \"Site Primarca\",\r\n    \"CampanhaCod\": null,\r\n    \"CampanhaNome\": null,\r\n    \"cnpjEmpresa\": \"63078489001297\",\r\n    \"EmailResponsavel\": null,\r\n    \"obsEvento\": \"teste primarca\",\r\n    \"equipe\": null\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://api.homologacao.websupplyconnect.com/api/Lead/crawler",
+              "protocol": "https",
+              "host": [
+                "api",
+                "homologacao",
+                "websupplyconnect",
+                "com"
+              ],
+              "path": [
+                "api",
+                "Lead",
+                "crawler"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "[SMOKE] Criar leads de diferentes empresa Primarca",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "x-api-key",
+                    "value": "a128ac75-d915-4631-9c2f-e6aa6da3beaf",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nome\": \"leads de diferentes empresas Primarca\",\r\n    \"email\": \"testenovoleadprimarca@gmail.com\",\r\n    \"whatsappNumero\": \"74918777972\",\r\n    \"origem\": \"Site Primarca\",\r\n    \"CampanhaCod\": null,\r\n    \"CampanhaNome\": null,\r\n    \"cnpjEmpresa\": \"63078489001297\",\r\n    \"EmailResponsavel\": null,\r\n    \"obsEvento\": \"teste primarca\",\r\n    \"equipe\": null\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://api.homologacao.websupplyconnect.com/api/Lead/crawler",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "homologacao",
+                    "websupplyconnect",
+                    "com"
+                  ],
+                  "path": [
+                    "api",
+                    "Lead",
+                    "crawler"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Tue, 07 Jul 2026 12:42:56 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Server",
+                  "value": "cloudflare"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Request-Context",
+                  "value": "appId=cid-v1:7d93dc8c-4935-4a9a-a56f-3cc1f303f142"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "ASP.NET"
+                },
+                {
+                  "key": "Cf-Cache-Status",
+                  "value": "DYNAMIC"
+                },
+                {
+                  "key": "Nel",
+                  "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+                },
+                {
+                  "key": "Report-To",
+                  "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=kgQcl0xOVV3sQRs505A0gU2yqYnTx%2BCDCLi%2BpRi3udLcknbUh7nOwa%2FEtHWJGX0k5FA9UU84LE06QKZnwKhJlobmxNecMgXSkBz12VrHjB3VrBHc1zIOPGkEmwJRPptEiGfpIpIFvqzkiazBAwIZLPV34c5gKw%3D%3D\"}]}"
+                },
+                {
+                  "key": "CF-RAY",
+                  "value": "a176ee93acc1a402-GRU"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Lead recebido com sucesso.\",\n    \"data\": {},\n    \"error\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "[SMOKE] Criar lead Primarca via Crawler com campanha",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code deve ser 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Tempo de resposta deve ser menor que 3 segundos\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Resposta deve ser JSON válido\", function () {\r",
+                  "    pm.response.to.be.json;\r",
+                  "});\r",
+                  "\r",
+                  "const response = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Deve retornar success como true\", function () {\r",
+                  "    pm.expect(response.success).to.eql(true);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Deve retornar mensagem de sucesso\", function () {\r",
+                  "    pm.expect(response.message).to.eql(\"Lead recebido com sucesso.\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Deve retornar data como objeto\", function () {\r",
+                  "    pm.expect(response.data).to.exist;\r",
+                  "    pm.expect(response.data).to.be.an(\"object\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Deve retornar error como null\", function () {\r",
+                  "    pm.expect(response.error).to.eql(null);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Resposta deve conter somente os campos esperados\", function () {\r",
+                  "    pm.expect(response).to.have.all.keys(\"success\", \"message\", \"data\", \"error\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "a128ac75-d915-4631-9c2f-e6aa6da3beaf",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nome\": \"Lead Primarca via Crawler com campanha\",\r\n    \"email\": \"testenovoleadprimarca@gmail.com\",\r\n    \"whatsappNumero\": \"11974870277\",\r\n    \"origem\": \"Site Primarca\",\r\n    \"CampanhaCod\": \"[C7][LEAD ADS][OFERTAS DO MÊS][SEMINOVOS]\",\r\n    \"CampanhaNome\": null,\r\n    \"cnpjEmpresa\": \"63078489001297\",\r\n    \"EmailResponsavel\": null,\r\n    \"obsEvento\": \"teste primarca\",\r\n    \"equipe\": null\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://api.homologacao.websupplyconnect.com/api/Lead/crawler",
+              "protocol": "https",
+              "host": [
+                "api",
+                "homologacao",
+                "websupplyconnect",
+                "com"
+              ],
+              "path": [
+                "api",
+                "Lead",
+                "crawler"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "[SMOKE] Criar lead Primarca via Crawler com campanha",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "x-api-key",
+                    "value": "a128ac75-d915-4631-9c2f-e6aa6da3beaf",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nome\": \"Lead Primarca via Crawler com campanha\",\r\n    \"email\": \"testenovoleadprimarca@gmail.com\",\r\n    \"whatsappNumero\": \"11974870277\",\r\n    \"origem\": \"Site Primarca\",\r\n    \"CampanhaCod\": \"[C7][LEAD ADS][OFERTAS DO MÊS][SEMINOVOS]\",\r\n    \"CampanhaNome\": null,\r\n    \"cnpjEmpresa\": \"63078489001297\",\r\n    \"EmailResponsavel\": null,\r\n    \"obsEvento\": \"teste primarca\",\r\n    \"equipe\": null\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://api.homologacao.websupplyconnect.com/api/Lead/crawler",
+                  "protocol": "https",
+                  "host": [
+                    "api",
+                    "homologacao",
+                    "websupplyconnect",
+                    "com"
+                  ],
+                  "path": [
+                    "api",
+                    "Lead",
+                    "crawler"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 03 Jul 2026 14:18:51 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Server",
+                  "value": "cloudflare"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "Request-Context",
+                  "value": "appId=cid-v1:7d93dc8c-4935-4a9a-a56f-3cc1f303f142"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "ASP.NET"
+                },
+                {
+                  "key": "cf-cache-status",
+                  "value": "DYNAMIC"
+                },
+                {
+                  "key": "Nel",
+                  "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+                },
+                {
+                  "key": "Report-To",
+                  "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=HZHU24HPMU4grq08ZZiRYYmowCBi6oYSQNsf5nwSXImLkvp0qj1aakSivHkdMKOpV3bqcphjLgbDm4pWLBsU3g%2BIQCmACnzTCi8k%2BgDvyfKOTBZ6scgAGCwFiAeF6wLQoDMp5pLbdelhJeoZk6nqUuLvUG7%2F6Q%3D%3D\"}]}"
+                },
+                {
+                  "key": "CF-RAY",
+                  "value": "a1568596b9606348-GRU"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Lead recebido com sucesso.\",\n    \"data\": {},\n    \"error\": null\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
