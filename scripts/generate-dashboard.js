@@ -9,7 +9,7 @@ fs.mkdirSync(publicDir, { recursive: true });
 let summary = null;
 let executions = [];
 let failures = [];
-let collectionName = '[QA] Testes - OLX';
+let collectionName = 'Testes de API';
 
 if (fs.existsSync(reportPath)) {
   const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
@@ -18,6 +18,10 @@ if (fs.existsSync(reportPath)) {
   failures = report.run?.failures || [];
   collectionName = report.collection?.name || collectionName;
 }
+
+// Nome do projeto exibido no titulo/cabecalho. Pode ser fixado via env PROJECT_NAME
+// no workflow; se nao for definido, usa o nome da collection do Postman.
+const projectName = process.env.PROJECT_NAME || collectionName;
 
 const stats = {
   requestsTotal: summary?.requests?.total || 0,
@@ -130,7 +134,7 @@ const html = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dashboard QA - OLX</title>
+<title>Dashboard QA - ${escapeHtml(projectName)}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -328,7 +332,7 @@ const html = `<!DOCTYPE html>
       <div class="brand">
         <div class="brand-mark">QA</div>
         <div>
-          <h1>Dashboard de Qualidade - OLX</h1>
+          <h1>Dashboard de Qualidade - ${escapeHtml(projectName)}</h1>
           <p>${escapeHtml(collectionName)} &nbsp;&middot;&nbsp; atualizado em ${stats.timestamp}</p>
         </div>
       </div>

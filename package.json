@@ -1,13 +1,13 @@
 {
-  "name": "connect-olx-qa-dashboard",
-  "version": "1.0.0",
+  "name": "connect-crawler-qa",
   "private": true,
+  "version": "1.0.0",
+  "description": "Testes automatizados de API (Postman/Newman) do projeto Criacao de Lead com Crawler",
   "scripts": {
-    "test:api": "newman run QA-Testes-OLX.postman_collection.json --reporters cli,json,htmlextra --reporter-json-export reports/newman-report.json --reporter-htmlextra-export reports/index.html",
-    "dashboard": "node scripts/generate-dashboard.js"
+    "dashboard": "node scripts/generate-dashboard.js",
+    "email-report": "node scripts/email-report.js"
   },
-  "devDependencies": {
-    "newman": "^6.2.1",
-    "newman-reporter-htmlextra": "^1.23.1"
+  "dependencies": {
+    "newman": "^6.2.1"
   }
 }

@@ -7,7 +7,7 @@ fs.mkdirSync(reportsDir, { recursive: true });
 
 let summary = null;
 let failures = [];
-let collectionName = '[QA] Testes - OLX';
+let collectionName = 'Testes de API';
 
 if (fs.existsSync(reportPath)) {
   const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
@@ -15,6 +15,10 @@ if (fs.existsSync(reportPath)) {
   failures = report.run?.failures || [];
   collectionName = report.collection?.name || collectionName;
 }
+
+// Nome do projeto exibido no assunto/tema do e-mail. Pode ser fixado via env
+// PROJECT_NAME no workflow; se nao for definido, usa o nome da collection do Postman.
+const projectName = process.env.PROJECT_NAME || collectionName;
 
 const stats = {
   requestsTotal: summary?.requests?.total || 0,
@@ -32,8 +36,8 @@ const runUrl = process.env.RUN_URL || '#';
 const isForcedTest = process.env.FORCE_TEST === 'true' && failures.length === 0;
 
 const theme = isForcedTest
-  ? { gradient: 'linear-gradient(135deg,#4f46e5,#4338ca)', eyebrow: 'Envio de teste', title: 'Teste de envio de e-mail — OLX', intro: `Este é um envio manual de teste solicitado no GitHub Actions para <strong>${escapeHtml(collectionName)}</strong>. Nenhuma falha real foi detectada nesta execução.` }
-  : { gradient: 'linear-gradient(135deg,#dc2626,#b91c1c)', eyebrow: 'Alerta automático', title: 'Falhas nos testes de API — OLX', intro: `A execução programada de <strong>${escapeHtml(collectionName)}</strong> encontrou falhas.` };
+  ? { gradient: 'linear-gradient(135deg,#4f46e5,#4338ca)', eyebrow: 'Envio de teste', title: `Teste de envio de e-mail — ${projectName}`, intro: `Este é um envio manual de teste solicitado no GitHub Actions para <strong>${escapeHtml(collectionName)}</strong>. Nenhuma falha real foi detectada nesta execução.` }
+  : { gradient: 'linear-gradient(135deg,#dc2626,#b91c1c)', eyebrow: 'Alerta automático', title: `Falhas nos testes de API — ${projectName}`, intro: `A execução programada de <strong>${escapeHtml(collectionName)}</strong> encontrou falhas.` };
 
 const failureRows = failures.length
   ? failures.map((failure) => `
@@ -49,7 +53,7 @@ const html = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Alerta de falhas - QA OLX</title>
+<title>Alerta de falhas - ${escapeHtml(projectName)}</title>
 </head>
 <body style="margin:0;padding:0;background-color:#f2f4f8;font-family:Arial,Helvetica,sans-serif;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f2f4f8;padding:32px 0;">
@@ -131,7 +135,7 @@ const html = `<!DOCTYPE html>
 
           <tr>
             <td style="padding:18px 32px;background:#fafafc;border-top:1px solid #eef0f4;" align="center">
-              <p style="margin:0;font-size:11.5px;color:#9aa0ad;">Enviado automaticamente pela pipeline de testes de API · OLX QA</p>
+              <p style="margin:0;font-size:11.5px;color:#9aa0ad;">Enviado automaticamente pela pipeline de testes de API · ${escapeHtml(projectName)}</p>
             </td>
           </tr>
 
@@ -169,7 +173,7 @@ const plainText = [
   `Dashboard completo: ${pagesUrl}`,
   `Logs da execução: ${runUrl}`,
   '',
-  'Enviado automaticamente pela pipeline de testes de API - OLX QA'
+  `Enviado automaticamente pela pipeline de testes de API - ${projectName}`
 ].join('\n');
 
 fs.writeFileSync(path.join(reportsDir, 'email-body.txt'), plainText);

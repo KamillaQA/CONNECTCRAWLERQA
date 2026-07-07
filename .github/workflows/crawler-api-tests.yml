@@ -1,4 +1,4 @@
-name: Run Postman API Tests
+name: Run Postman API Tests - Crawler
 on:
   push:
   pull_request:
@@ -17,6 +17,8 @@ permissions:
 jobs:
   postman-tests:
     runs-on: ubuntu-latest
+    env:
+      PROJECT_NAME: "Criação de Lead com Crawler"
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
@@ -42,7 +44,7 @@ jobs:
       - name: Executar testes Postman com Newman
         id: newman
         run: |
-          npx newman run "QA-Testes-OLX.postman_collection.json" \
+          npx newman run "[QA] Testes - Crawler.postman_collection.json" \
             --reporters cli,json \
             --reporter-json-export reports/newman-report.json
 
@@ -78,8 +80,8 @@ jobs:
           secure: true
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
-          subject: ${{ steps.newman.outcome == 'failure' && '🔴 Falhas nos testes de API - OLX' || '🧪 Teste de envio de e-mail - OLX' }}
+          subject: ${{ steps.newman.outcome == 'failure' && '🔴 Falhas nos testes - Criação de Lead com Crawler' || '🧪 Teste de envio de e-mail - Criação de Lead com Crawler' }}
           to: ${{ secrets.MAIL_TO }}
-          from: "QA Bot OLX <${{ secrets.MAIL_USERNAME }}>"
+          from: "QA Bot <${{ secrets.MAIL_USERNAME }}>"
           body: file://reports/email-body.txt
           html_body: file://reports/email-body.html
