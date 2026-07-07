@@ -61,8 +61,8 @@
             "method": "POST",
             "header": [
               {
-                "key": "{{x-api-key}}",
-                "value": "",
+                "key": "x-api-key",
+                "value": "{{x-api-key}}",
                 "type": "text"
               }
             ],
@@ -242,8 +242,8 @@
             "method": "POST",
             "header": [
               {
-                "key": "{{x-api-key}}",
-                "value": "",
+                "key": "x-api-key",
+                "value": "{{x-api-key}}",
                 "type": "text"
               }
             ],
@@ -423,8 +423,8 @@
             "method": "POST",
             "header": [
               {
-                "key": "{{x-api-key}}",
-                "value": "",
+                "key": "x-api-key",
+                "value": "{{x-api-key}}",
                 "type": "text"
               }
             ],
