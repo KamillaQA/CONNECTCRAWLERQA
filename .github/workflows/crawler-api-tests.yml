@@ -45,6 +45,7 @@ jobs:
         id: newman
         run: |
           npx newman run "[QA] Testes - Crawler.postman_collection.json" \
+            --env-var "x_api_key=${{ secrets.CRAWLER_API_KEY }}" \
             --reporters cli,json \
             --reporter-json-export reports/newman-report.json
 

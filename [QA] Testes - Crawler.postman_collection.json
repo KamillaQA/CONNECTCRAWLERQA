@@ -61,8 +61,8 @@
             "method": "POST",
             "header": [
               {
-                "key": "x-api-key",
-                "value": "a128ac75-d915-4631-9c2f-e6aa6da3beaf",
+                "key": "{{x-api-key}}",
+                "value": "",
                 "type": "text"
               }
             ],
@@ -242,8 +242,8 @@
             "method": "POST",
             "header": [
               {
-                "key": "x-api-key",
-                "value": "a128ac75-d915-4631-9c2f-e6aa6da3beaf",
+                "key": "{{x-api-key}}",
+                "value": "",
                 "type": "text"
               }
             ],
@@ -423,8 +423,8 @@
             "method": "POST",
             "header": [
               {
-                "key": "x-api-key",
-                "value": "a128ac75-d915-4631-9c2f-e6aa6da3beaf",
+                "key": "{{x-api-key}}",
+                "value": "",
                 "type": "text"
               }
             ],
@@ -553,6 +553,13 @@
           ]
         }
       ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "x-api-key",
+      "value": "",
+      "type": "default"
     }
   ]
 }
