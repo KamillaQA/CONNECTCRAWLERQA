@@ -46,9 +46,8 @@ jobs:
         env:
           X_API_KEY: ${{ secrets.CRAWLER_API_KEY }}
         run: |
-          echo "Debug: chave recebida tem ${#X_API_KEY} caracteres (sem mostrar o valor)"
           npx newman run "[QA] Testes - Crawler.postman_collection.json" \
-            --env-var "x_api_key=$X_API_KEY" \
+            --env-var "x-api-key=$X_API_KEY" \
             --reporters cli,json \
             --reporter-json-export reports/newman-report.json
 
