@@ -1,0 +1,200 @@
+[
+  {
+    "timestamp": "07/07/2026, 10:58:56",
+    "successRate": 25,
+    "requestsTotal": 3,
+    "requestsFailed": 0,
+    "assertionsTotal": 24,
+    "assertionsFailed": 18,
+    "failuresCount": 18,
+    "status": "failed",
+    "runUrl": "https://github.com/KamillaQA/CONNECTCRAWLERQA/actions/runs/28871946422"
+  },
+  {
+    "timestamp": "07/07/2026, 11:02:28",
+    "successRate": 25,
+    "requestsTotal": 3,
+    "requestsFailed": 0,
+    "assertionsTotal": 24,
+    "assertionsFailed": 18,
+    "failuresCount": 18,
+    "status": "failed",
+    "runUrl": "https://github.com/KamillaQA/CONNECTCRAWLERQA/actions/runs/28872193721"
+  },
+  {
+    "timestamp": "07/07/2026, 11:10:53",
+    "successRate": 25,
+    "requestsTotal": 3,
+    "requestsFailed": 0,
+    "assertionsTotal": 24,
+    "assertionsFailed": 18,
+    "failuresCount": 18,
+    "status": "failed",
+    "runUrl": "https://github.com/KamillaQA/CONNECTCRAWLERQA/actions/runs/28872791278"
+  },
+  {
+    "timestamp": "07/07/2026, 11:27:02",
+    "successRate": 25,
+    "requestsTotal": 3,
+    "requestsFailed": 0,
+    "assertionsTotal": 24,
+    "assertionsFailed": 18,
+    "failuresCount": 18,
+    "status": "failed",
+    "runUrl": "https://github.com/KamillaQA/CONNECTCRAWLERQA/actions/runs/28873914070"
+  },
+  {
+    "timestamp": "07/07/2026, 11:37:30",
+    "successRate": 25,
+    "requestsTotal": 3,
+    "requestsFailed": 0,
+    "assertionsTotal": 24,
+    "assertionsFailed": 18,
+    "failuresCount": 18,
+    "status": "failed",
+    "runUrl": "https://github.com/KamillaQA/CONNECTCRAWLERQA/actions/runs/28874641194"
+  },
+  {
+    "timestamp": "07/07/2026, 11:44:24",
+    "successRate": 25,
+    "requestsTotal": 3,
+    "requestsFailed": 0,
+    "assertionsTotal": 24,
+    "assertionsFailed": 18,
+    "failuresCount": 18,
+    "status": "failed",
+    "runUrl": "https://github.com/KamillaQA/CONNECTCRAWLERQA/actions/runs/28874641194"
+  },
+  {
+    "timestamp": "07/07/2026, 11:54:46",
+    "successRate": 100,
+    "requestsTotal": 3,
+    "requestsFailed": 0,
+    "assertionsTotal": 24,
+    "assertionsFailed": 0,
+    "failuresCount": 0,
+    "status": "ok",
+    "runUrl": "https://github.com/KamillaQA/CONNECTCRAWLERQA/actions/runs/28875833420"
+  },
+  {
+    "timestamp": "07/07/2026, 13:53:02",
+    "successRate": 100,
+    "requestsTotal": 3,
+    "requestsFailed": 0,
+    "assertionsTotal": 24,
+    "assertionsFailed": 0,
+    "failuresCount": 0,
+    "status": "ok",
+    "runUrl": "https://github.com/KamillaQA/CONNECTCRAWLERQA/actions/runs/28883579431"
+  },
+  {
+    "timestamp": "07/07/2026, 16:52:17",
+    "successRate": 100,
+    "requestsTotal": 3,
+    "requestsFailed": 0,
+    "assertionsTotal": 24,
+    "assertionsFailed": 0,
+    "failuresCount": 0,
+    "status": "ok",
+    "runUrl": "https://github.com/websupply/CONNECTCRAWLERQA/actions/runs/28894268085"
+  },
+  {
+    "timestamp": "13/07/2026, 10:14:22",
+    "successRate": 100,
+    "requestsTotal": 3,
+    "requestsFailed": 0,
+    "assertionsTotal": 24,
+    "assertionsFailed": 0,
+    "failuresCount": 0,
+    "status": "ok",
+    "runUrl": "https://github.com/websupply/CONNECTCRAWLERQA/actions/runs/29252968976"
+  },
+  {
+    "timestamp": "20/07/2026, 08:55:31",
+    "successRate": 100,
+    "requestsTotal": 3,
+    "requestsFailed": 0,
+    "assertionsTotal": 24,
+    "assertionsFailed": 0,
+    "failuresCount": 0,
+    "status": "ok",
+    "runUrl": "https://github.com/websupply/CONNECTCRAWLERQA/actions/runs/29740248914"
+  },
+  {
+    "timestamp": "27/07/2026, 09:03:35",
+    "successRate": 100,
+    "requestsTotal": 3,
+    "requestsFailed": 0,
+    "assertionsTotal": 24,
+    "assertionsFailed": 0,
+    "failuresCount": 0,
+    "status": "ok",
+    "runUrl": "https://github.com/websupply/CONNECTCRAWLERQA/actions/runs/30264320433"
+  },
+  {
+    "timestamp": "03/08/2026, 09:04:47",
+    "successRate": 100,
+    "requestsTotal": 3,
+    "requestsFailed": 0,
+    "assertionsTotal": 24,
+    "assertionsFailed": 0,
+    "failuresCount": 0,
+    "status": "ok",
+    "runUrl": "https://github.com/websupply/CONNECTCRAWLERQA/actions/runs/30812037572"
+  },
+  {
+    "timestamp": "10/08/2026, 08:23:21",
+    "successRate": 100,
+    "requestsTotal": 3,
+    "requestsFailed": 0,
+    "assertionsTotal": 24,
+    "assertionsFailed": 0,
+    "failuresCount": 0,
+    "status": "ok",
+    "runUrl": "https://github.com/websupply/CONNECTCRAWLERQA/actions/runs/31383251423"
+  },
+  {
+    "timestamp": "17/08/2026, 08:06:25",
+    "successRate": 100,
+    "requestsTotal": 3,
+    "requestsFailed": 0,
+    "assertionsTotal": 24,
+    "assertionsFailed": 0,
+    "failuresCount": 0,
+    "status": "ok",
+    "runUrl": "https://github.com/websupply/CONNECTCRAWLERQA/actions/runs/32023288245"
+  },
+  {
+    "timestamp": "24/08/2026, 08:08:29",
+    "successRate": 100,
+    "requestsTotal": 3,
+    "requestsFailed": 0,
+    "assertionsTotal": 24,
+    "assertionsFailed": 0,
+    "failuresCount": 0,
+    "status": "ok",
+    "runUrl": "https://github.com/websupply/CONNECTCRAWLERQA/actions/runs/32720285189"
+  },
+  {
+    "timestamp": "31/08/2026, 08:05:47",
+    "successRate": 100,
+    "requestsTotal": 3,
+    "requestsFailed": 0,
+    "assertionsTotal": 24,
+    "assertionsFailed": 0,
+    "failuresCount": 0,
+    "status": "ok",
+    "runUrl": "https://github.com/websupply/CONNECTCRAWLERQA/actions/runs/33385338210"
+  },
+  {
+    "timestamp": "07/09/2026, 08:06:05",
+    "successRate": 100,
+    "requestsTotal": 3,
+    "requestsFailed": 0,
+    "assertionsTotal": 24,
+    "assertionsFailed": 0,
+    "failuresCount": 0,
+    "status": "ok",
+    "runUrl": "https://github.com/websupply/CONNECTCRAWLERQA/actions/runs/34114821059"
+  }
+]
